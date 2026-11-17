@@ -1,0 +1,124 @@
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #EAF2F8;
+      margin: 0;
+    }
+
+    header {
+      background: #263D52;
+      color: #E4F0FA;
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    h1, h2 {
+      font-family: "Caveat Brush", cursive;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+
+    h2 {
+      color: #356A91;
+      border-bottom: 2px dashed #B8D0E2;
+      padding-bottom: 6px;
+    }
+
+    .plato {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+    }
+
+    .precio {
+      font-weight: bold;
+      color: #356A91;
+      white-space: nowrap;
+    }
+
+    .desc {
+      color: #61798C;
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
+    img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    section {
+      background: white;
+      margin: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
+    }
+
+    .menu {
+      margin: 16px;
+      padding: 16px;
+      border: 3px dashed #6C9ABB;
+      border-radius: 16px;
+      background: #F2F8FC;
+      text-align: center;
+    }
+
+    .menu h2 {
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      section, .menu {
+        margin: 12px;
+        padding: 14px;
+      }
+
+      img {
+        height: 130px;
+      }
+    }
+
+    #sorpresa {
+      display: block;
+      margin: 16px auto 0;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 999px;
+      background: #C9473B;
+      color: white;
+      font-size: 16px;
+    }
+
+    #consejo {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .elegido {
+      background: #FFE9A8;
+      border-radius: 8px;
+    }
+
+    #cuenta {
+      position: sticky;
+      bottom: 0;
+      background: #1F2A26;
+      color: #FFE9A8;
+      padding: 14px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .plato {
+      cursor: pointer;
+    }
