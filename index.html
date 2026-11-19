@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Izan | Carta de taberna</title>
+  <link rel="stylesheet" href="estilodecarta.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap">
+</head>
+<body>
+  <header>
+    <h1>El Izan</h1>
+    <p>Taberna española · Cocina casera</p>
+  </header>
+
+  <button id="sorpresa">🎲 ¿Qué pido hoy?</button>
+  <p id="consejo"></p>
+
+  <section>
+    <h2>Tapas</h2>
+
+    <div class="plato">
+      <span>Croquetas caseras (4 uds.)</span>
+      <span class="precio">4,00 €</span>
+    </div>
+    <img src="croquetas.jpg" alt="Croquetas caseras">
+    <p class="desc">Cremosas por dentro y doraditas por fuera.</p>
+
+    <div class="plato">
+      <span>Patatas bravas</span>
+      <span class="precio">6,00 €</span>
+    </div>
+    <img src="https://tse3.mm.bing.net/th/id/OIP.5_YvQZr4yg0XQMPA1G5QzwAAAA?r=0&pid=Api&h=220&P=0" alt="Patatas bravas">
+    <p class="desc">Con salsa brava de la casa.</p>
+
+    <div class="plato">
+      <span>Ensaladilla rusa</span>
+      <span class="precio">6,50 €</span>
+    </div>
+    <img src="https://tse2.mm.bing.net/th/id/OIP.pIXth1axIIedGo8kW8oCLgHaHa?r=0&pid=Api&h=220&P=0" alt="Ensaladilla rusa">
+    <p class="desc">Receta tradicional, hecha cada día.</p>
+  </section>
+
+  <section>
+    <h2>Raciones</h2>
+    <div class="plato">
+      <span>Flamenquín cordobés</span>
+      <span class="precio">13,50 €</span>
+    </div>
+    <img src="flamenquin.jpg" alt="Flamenquín cordobés">
+    <p class="desc">Con patatas y un toque de limón.</p>
+
+    <div class="plato">
+      <span>Salmorejo cordobés</span>
+      <span class="precio">8,00 €</span>
+    </div>
+    <img src="salmorejo.jpg" alt="Salmorejo cordobés">
+    <p class="desc">Con huevo y jamón.</p>
+
+    <div class="plato">
+      <span>Tabla de quesos</span>
+      <span class="precio">12,00 €</span>
+    </div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-JNHQRvv-YIhFH7g9dwN3Lnm-37POy2p06Whc0E1KHQ&s=10" alt="Tabla de quesos">
+    <p class="desc">Selección de quesos nacionales.</p>
+  </section>
+
+  <section>
+    <h2>Postres</h2>
+
+    <div class="plato">
+      <span>Tarta de queso</span>
+      <span class="precio">5,50 €</span>
+    </div>
+    <img src="tarta.jpg" alt="Tarta de queso">
+    <p class="desc">Cremosa y elaborada en casa.</p>
+
+    <div class="plato">
+      <span>Flan casero</span>
+      <span class="precio">4,50 €</span>
+    </div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSri---KPQQY3JD47hnlss1th3sVZSVBLmYzUmKc9DqMQ&s=10" alt="Flan casero">
+    <p class="desc">Con caramelo hecho en nuestra cocina.</p>
+  </section>
+
+  <section class="menu">
+    <h2>Menú del día</h2>
+    <div class="plato">
+      <span>Salmorejo + carrillada + tarta de queso</span>
+      <span class="precio">14,00 €</span>
+    </div>
+  </section>
+
+  <div id="cuenta">
+    Mi cuenta: <b id="total">0,00</b> €
+  </div>
+
+  <script>
+    const platos = document.querySelectorAll(".plato");
+    const boton = document.getElementById("sorpresa");
+
+    boton.onclick = function () {
+      const n = Math.floor(Math.random() * platos.length);
+      const elegido = platos[n];
+
+      platos.forEach(function (p) {
+        p.classList.remove("elegido");
+      });
+      elegido.classList.add("elegido");
+
+      const nombre = elegido.querySelector("span").textContent;
+      document.getElementById("consejo").textContent = "Hoy te recomiendo: " + nombre;
+    };
+
+    let total = 0;
+
+    platos.forEach(function (plato) {
+      plato.onclick = function () {
+        const texto = plato.querySelector(".precio").textContent;
+        total = total + parseFloat(texto.replace(",", "."));
+        document.getElementById("total").textContent =
+          total.toFixed(2).replace(".", ",");
+      };
+    });
+  </script>
+</body>
+</html>
